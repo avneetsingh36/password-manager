@@ -15,16 +15,25 @@ void reverse(char* str){
         start++;
         end--;
     }
-
 }
 
-char* cc(char* str){
+char* cc(char* str, char* phrase){
     int offset = key;
     int temp;
-    for(int i = 0; i < strlen(str); i++){
+    int len = strlen(str);
+    
+    for(int i = 0; i < len; i++){
        temp = str[i];
        str[i] = (char)(temp+offset); 
     }
+    
+    for(int i = len; i< (len * 2); i++){
+        temp = phrase[i - len];
+        str[i] = (char)(temp + (offset/2));
+    }
+    
+    str[(len * 2)] = '\0';
+
     return str;
 }
 
@@ -38,7 +47,7 @@ char* encrypt(char* phrase) {
     encrypted_pass[49] = '\0';
     reverse(encrypted_pass);
     
-    cc(encrypted_pass);
+    cc(encrypted_pass, phrase);
 
     return encrypted_pass;
 

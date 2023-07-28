@@ -13,10 +13,10 @@ Creds creating_new_entry(){
     printf("Enter site name: ");
     fgets(entry.site, sizeof(entry.site), stdin);
 
-    printf("Enter username: ");
+    printf("Enter username (up to 10 characters): ");
     fgets(entry.userName, sizeof(entry.userName), stdin);
 
-    printf("Enter password: ");
+    printf("Enter password (up to 25 characters): ");
     fgets(entry.password, sizeof(entry.password), stdin);
 
     printf("\nSite: %s", entry.site);
