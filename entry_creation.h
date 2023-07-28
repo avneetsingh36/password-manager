@@ -4,5 +4,5 @@ typedef struct Credentials {
     char password[30];
 } Creds;
 
-
+void remove_newline(Creds* entry);
 Creds creating_new_entry();
