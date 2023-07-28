@@ -33,22 +33,28 @@ char* cc(char* str, char* phrase){
     }
     
     str[(len * 2)] = '\0';
-
     return str;
 }
 
 char* encrypt(char* phrase) {
     char* encrypted_pass = malloc(50 * sizeof(char));
+    
     if(encrypted_pass == NULL){
         fprintf(stderr, "Failed to allocate memory for Encrypted Password");
         exit(1);
     }
+    
+    //creation of enc pass
     strncpy(encrypted_pass, phrase, 49);
     encrypted_pass[49] = '\0';
+    
+    //reverse portion of string
     reverse(encrypted_pass);
     
+    //caesar cipher added and manipulation
     cc(encrypted_pass, phrase);
 
+    //return encrypted pass
     return encrypted_pass;
 
 }
