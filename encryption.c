@@ -18,6 +18,16 @@ void reverse(char* str){
 
 }
 
+char* cc(char* str){
+    int offset = key;
+    int temp;
+    for(int i = 0; i < strlen(str); i++){
+       temp = str[i];
+       str[i] = (char)(temp+offset); 
+    }
+    return str;
+}
+
 char* encrypt(char* phrase) {
     char* encrypted_pass = malloc(50 * sizeof(char));
     if(encrypted_pass == NULL){
@@ -28,6 +38,8 @@ char* encrypt(char* phrase) {
     encrypted_pass[49] = '\0';
     reverse(encrypted_pass);
     
+    cc(encrypted_pass);
+
     return encrypted_pass;
 
 }
